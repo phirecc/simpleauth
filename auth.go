@@ -2,7 +2,6 @@ package simpleauth
 
 import (
 	"net/http"
-	"fmt"
 	"strings"
 	"bytes"
 	"encoding/base64"
@@ -14,7 +13,6 @@ type Handler struct {
 }
 
 func (h Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-	fmt.Println(r)
 	if !h.authenticate(r) {
 		h.requestAuth(w, r)
 		return
